@@ -33,9 +33,9 @@ export default function TracksPage() {
   useEffect(() => {
     const loadLaws = async () => {
       try {
-        const res = await fetch("/api/game/laws");
-        const payload = (await res.json()) as { laws?: LawAvailability[] };
-        if (res.ok && payload.laws) setLaws(payload.laws);
+        const { computeLawAvailabilities } = await import("@/lib/game/provisions");
+        const availabilities = await computeLawAvailabilities();
+        setLaws(availabilities);
       } catch {
         setLaws([]);
       }

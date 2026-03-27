@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen bg-slate-950","children":["$","div",null,{"className":"mx-auto w-full max-w-4xl px-4 py-10 sm:px-6","children":["$","section",null,{"className":"space-y-3 rounded-2xl border border-slate-700/80 bg-slate-900/70 p-5","children":[["$","h1",null,{"className":"text-xl font-semibold","children":"อาสา / ร่วมพัฒนา"}],["$","p",null,{"className":"text-sm text-slate-300","children":"หน้าเตรียมไว้สำหรับผู้ร่วมพัฒนาที่ช่วยคัดการ์ดกฎหมายและตรวจคุณภาพคำตอบ"}]]}]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"TyCHiOMiefuej01DN-wLP"}
+4:null

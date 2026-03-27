@@ -358,20 +358,16 @@ export default function GameplayPage() {
     setHintText("");
     setRevivePrompt(false);
     try {
-      const res = await fetch("/api/game/start", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lawId: run.selectedLawId }),
-      });
-      const payload = (await res.json()) as { questions?: RunSnapshot["questions"]; bonus?: RunSnapshot["bonusQuestion"]; message?: string; error?: string };
-      if (!res.ok || !payload.questions || payload.questions.length < 100) {
-        throw new Error(payload.message || payload.error || "ไม่สามารถเริ่มรอบใหม่ได้");
+      const { startRun } = await import("@/lib/game/provisions");
+      const result = await startRun(run.selectedLawId);
+      if (!result.ok) {
+        throw new Error(result.error);
       }
       const nextRun: RunSnapshot = {
         selectedLawId: run.selectedLawId,
         selectedLawName: run.selectedLawName,
-        questions: payload.questions,
-        bonusQuestion: payload.bonus,
+        questions: result.questions,
+        bonusQuestion: result.bonus ?? undefined,
         bonusUsed: false,
         currentIndex: 0,
         level: 1,

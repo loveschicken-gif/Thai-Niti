@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen bg-slate-950","children":["$","div",null,{"className":"mx-auto w-full max-w-4xl px-4 py-10 sm:px-6","children":["$","section",null,{"className":"space-y-3 rounded-2xl border border-slate-700/80 bg-slate-900/70 p-5","children":[["$","h1",null,{"className":"text-xl font-semibold","children":"โหมดวิจัยเบต้า (ล็อก)"}],["$","p",null,{"className":"text-sm text-slate-300","children":"ระบบวิจัยถูกแยกจากผลิตภัณฑ์ฝึกสาธารณะ และยังปิดไว้ใน MVP เวอร์ชันนี้"}],["$","a",null,{"href":"https://forms.gle/placeholder","target":"_blank","rel":"noreferrer","className":"inline-block rounded-lg border border-slate-600 px-4 py-2 text-sm","children":"ขอสิทธิ์เข้าใช้งาน (ตัวอย่าง)"}]]}]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"TyCHiOMiefuej01DN-wLP"}
+4:null
