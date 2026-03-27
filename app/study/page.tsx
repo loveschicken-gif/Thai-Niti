@@ -9,7 +9,7 @@ import TrackCard from "@/components/mvp/TrackCard";
 import { GAME_LAWS, getLawById } from "@/lib/game/laws";
 import { lawMastery } from "@/lib/game/mvp";
 import { loadCompletions, saveActiveRun } from "@/lib/game/storage";
-import type { ClozeQuestion, CompletionSummary, LawId, RunSnapshot, TrackAvailabilityStatus } from "@/lib/game/types";
+import type { CompletionSummary, LawId, RunSnapshot, TrackAvailabilityStatus } from "@/lib/game/types";
 
 type LawAvailability = {
   id: LawId;
@@ -41,10 +41,9 @@ export default function StudyPage() {
   useEffect(() => {
     const loadLaws = async () => {
       try {
-        const res = await fetch("/api/game/laws");
-        const payload = (await res.json()) as { laws?: LawAvailability[]; error?: string };
-        if (!res.ok || !payload.laws) throw new Error(payload.error || "ไม่สามารถโหลดแทร็กได้");
-        setLaws(payload.laws);
+        const { computeLawAvailabilities } = await import("@/lib/game/provisions");
+        const availabilities = await computeLawAvailabilities();
+        setLaws(availabilities);
       } catch (err) {
         setError(err instanceof Error ? err.message : "ไม่สามารถโหลดแทร็กได้");
       }
@@ -63,21 +62,17 @@ export default function StudyPage() {
     setLoadingLaw(lawId);
     setError("");
     try {
-      const res = await fetch("/api/game/start", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lawId }),
-      });
-      const payload = (await res.json()) as { questions?: ClozeQuestion[]; bonus?: ClozeQuestion; message?: string; error?: string };
-      if (!res.ok || !payload.questions || payload.questions.length < 100) {
-        throw new Error(payload.message || payload.error || "ไม่สามารถเริ่มรอบฝึกได้");
+      const { startRun: clientStartRun } = await import("@/lib/game/provisions");
+      const result = await clientStartRun(lawId);
+      if (!result.ok) {
+        throw new Error(result.error);
       }
       const law = getLawById(lawId);
       const nextRun: RunSnapshot = {
         selectedLawId: lawId,
         selectedLawName: law?.nameTh || lawId,
-        questions: payload.questions,
-        bonusQuestion: payload.bonus,
+        questions: result.questions,
+        bonusQuestion: result.bonus ?? undefined,
         bonusUsed: false,
         currentIndex: 0,
         level: 1,
