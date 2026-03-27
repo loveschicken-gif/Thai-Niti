@@ -1,0 +1,1 @@
+"""Thai Niti retrieval library."""

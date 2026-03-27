@@ -1,0 +1,6 @@
+.next/
+node_modules/
+.DS_Store
+*.log
+data/eval/
+data/processed/thai_niti_normalized.json

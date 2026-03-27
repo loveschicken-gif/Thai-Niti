@@ -1,0 +1,63 @@
+{
+  "generated_at_utc": "2026-03-27T05:43:09.057727",
+  "target_schema": [
+    "id",
+    "source_dataset",
+    "source_type",
+    "title",
+    "law_title",
+    "section",
+    "category",
+    "publication_date",
+    "agency",
+    "context_text",
+    "source_pdf",
+    "url",
+    "split",
+    "corpus"
+  ],
+  "runs": [
+    {
+      "dataset_id": "open-law-data-thailand/soc-ratchakitcha",
+      "corpus": "gazette",
+      "success": false,
+      "splits": {},
+      "fields": [],
+      "sampled_rows": 0,
+      "normalized_rows": 0,
+      "duplicate_rows_removed": 0,
+      "missing_title_count": 0,
+      "missing_context_count": 0,
+      "missing_date_count": 0,
+      "missing_url_count": 0,
+      "notes": [
+        "Dataset could not be downloaded. Check HF_TOKEN or dataset access permissions."
+      ],
+      "error": "429 Client Error: Too Many Requests for url: https://huggingface.co/api/datasets/open-law-data-thailand/soc-ratchakitcha/xet-read-token/6803e1f7a51b5ac406884884782f940e8336fb50 (Request ID: Root=1-69c618e7-0ab6bb1e785c10eb308e4455;53ffda1f-a8b0-4a9a-a012-576e07ddfae7)\n\nWe had to rate limit your IP (47.230.116.124). To continue using our service, create a HF account or login to your existing account, and make sure you pass a HF_TOKEN if you're using the API."
+    },
+    {
+      "dataset_id": "open-law-data-thailand/ocs-krisdika",
+      "corpus": "krisdika",
+      "success": false,
+      "splits": {},
+      "fields": [],
+      "sampled_rows": 0,
+      "normalized_rows": 0,
+      "duplicate_rows_removed": 0,
+      "missing_title_count": 0,
+      "missing_context_count": 0,
+      "missing_date_count": 0,
+      "missing_url_count": 0,
+      "notes": [
+        "Dataset could not be downloaded. Check HF_TOKEN or dataset access permissions."
+      ],
+      "error": "429 Client Error: Too Many Requests for url: https://huggingface.co/api/datasets/open-law-data-thailand/ocs-krisdika/revision/023fe1e1e8922f0d0e5e71c6aad535bfbdb6e54e (Request ID: Root=1-69c618ed-4926616f32639500683daafe;6bb35867-94a6-48d2-9c88-98f20c01f420)\n\nWe had to rate limit your IP (47.230.116.124). To continue using our service, create a HF account or login to your existing account, and make sure you pass a HF_TOKEN if you're using the API."
+    }
+  ],
+  "combined_rows": 0,
+  "global_notes": [
+    "Corpus separation preserved with `corpus` field.",
+    "Use corpus='ccc' for existing Thai Civil Code records, 'gazette' for soc-ratchakitcha, and 'krisdika' for ocs-krisdika.",
+    "If access errors occur, set HF_TOKEN with dataset access permissions and rerun."
+  ]
+}

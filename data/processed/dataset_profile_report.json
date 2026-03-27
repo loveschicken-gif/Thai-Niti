@@ -1,0 +1,68 @@
+{
+  "dataset_name": "airesearch/WangchanX-Legal-ThaiCCL-RAG",
+  "splits": {
+    "train": {
+      "split": "train",
+      "rows": 8211,
+      "fields": [
+        "question",
+        "positive_contexts",
+        "hard_negative_contexts",
+        "positive_answer",
+        "hard_negative_answer"
+      ],
+      "duplicate_question_rows": 8,
+      "unique_questions": 8203,
+      "missing_law_title_count": 0,
+      "missing_section_count": 0,
+      "empty_context_text_count": 0,
+      "repeated_context_instances": 31170,
+      "rows_with_repeated_contexts": 1007,
+      "empty_hard_negative_context_rows": 1090,
+      "empty_hard_negative_answer_rows": 4559,
+      "format_issues": {
+        "double_space_contexts": 0,
+        "raw_crlf_contexts": 0,
+        "leading_or_trailing_whitespace_contexts": 0
+      }
+    },
+    "test": {
+      "split": "test",
+      "rows": 3742,
+      "fields": [
+        "question",
+        "positive_contexts",
+        "hard_negative_contexts",
+        "positive_answer",
+        "hard_negative_answer"
+      ],
+      "duplicate_question_rows": 7,
+      "unique_questions": 3735,
+      "missing_law_title_count": 0,
+      "missing_section_count": 0,
+      "empty_context_text_count": 0,
+      "repeated_context_instances": 137,
+      "rows_with_repeated_contexts": 0,
+      "empty_hard_negative_context_rows": 3742,
+      "empty_hard_negative_answer_rows": 3742,
+      "format_issues": {
+        "double_space_contexts": 0,
+        "raw_crlf_contexts": 0,
+        "leading_or_trailing_whitespace_contexts": 0
+      }
+    }
+  },
+  "normalized_records": 39334,
+  "duplicate_normalized_ids": 0,
+  "repeated_normalized_context_triples": 34453,
+  "normalized_schema": {
+    "id": "string (stable hash)",
+    "question": "string",
+    "answer": "string (positive_answer)",
+    "law_title": "string | null",
+    "section": "string | null",
+    "context_text": "string",
+    "source_type": "positive | hard_negative",
+    "split": "train | test"
+  }
+}

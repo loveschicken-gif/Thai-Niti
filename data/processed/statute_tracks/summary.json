@@ -1,0 +1,29 @@
+{
+  "tracks": [
+    {
+      "track_id": "pc",
+      "track_name_en": "Penal Code",
+      "track_name_th": "ประมวลกฎหมายอาญา",
+      "count": 452,
+      "source_used": "pythainlp_release_criminal",
+      "output_file": "data/processed/statute_tracks/pc.json"
+    },
+    {
+      "track_id": "bankruptcy",
+      "track_name_en": "Bankruptcy Act",
+      "track_name_th": "พระราชบัญญัติล้มละลาย",
+      "count": 33,
+      "source_used": "pythainlp_thailaw_v1",
+      "output_file": "data/processed/statute_tracks/bankruptcy.json"
+    },
+    {
+      "track_id": "crpc",
+      "track_name_en": "Criminal Procedure Code",
+      "track_name_th": "ประมวลกฎหมายวิธีพิจารณาความอาญา",
+      "count": 25,
+      "source_used": "pythainlp_thailaw_v1",
+      "output_file": "data/processed/statute_tracks/crpc.json"
+    }
+  ],
+  "failures": []
+}
