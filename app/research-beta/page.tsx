@@ -7,7 +7,6 @@ import { GAME_LAWS } from "@/lib/game/laws";
 import type { LawId } from "@/lib/game/types";
 
 const RESEARCH_ACCESS_KEY = "thai-niti:research-access";
-const CORRECT_PASSCODE = "ThaiNitiinthefuture";
 
 const LAW_OPTIONS: { id: LawId; label: string }[] = GAME_LAWS.map((l) => ({ id: l.id, label: l.nameTh }));
 
@@ -27,15 +26,24 @@ function PasscodeGate({ onUnlock }: { onUnlock: () => void }) {
     inputRef.current?.focus();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (passcode === CORRECT_PASSCODE) {
-      localStorage.setItem(RESEARCH_ACCESS_KEY, "true");
-      onUnlock();
-    } else {
-      setError("รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง");
-      setPasscode("");
-      inputRef.current?.focus();
+    try {
+      const res = await fetch("/api/research-access", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ passcode }),
+      });
+      if (res.ok) {
+        localStorage.setItem(RESEARCH_ACCESS_KEY, "true");
+        onUnlock();
+      } else {
+        setError("รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง");
+        setPasscode("");
+        inputRef.current?.focus();
+      }
+    } catch {
+      setError("เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง");
     }
   };
 
