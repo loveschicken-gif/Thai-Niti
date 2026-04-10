@@ -189,6 +189,35 @@ export type StartRunResult =
   | { ok: true; questions: ClozeQuestion[]; bonus: ClozeQuestion | null }
   | { ok: false; error: string; errorCode?: string };
 
+const MAX_SEARCH_RESULTS = 50;
+const MAX_QUERY_LENGTH = 200;
+
+export type ProvisionSearchResult = {
+  section: string;
+  lawTitle: string;
+  text: string;
+};
+
+export async function searchProvisions(query: string, lawId?: LawId): Promise<ProvisionSearchResult[]> {
+  const records = await loadProvisions();
+  const pool = lawId ? selectLawProvisions(records, lawId) : records;
+  const trimmed = query.trim().slice(0, MAX_QUERY_LENGTH);
+  const terms = trimmed
+    .toLowerCase()
+    .split(/\s+/)
+    .filter((t) => t.length > 0);
+  if (terms.length === 0) return [];
+  const matched = pool.filter((r) => {
+    const haystack = `${r.law_title} ${r.section} ${r.context_text}`.toLowerCase();
+    return terms.every((term) => haystack.includes(term));
+  });
+  return matched.slice(0, MAX_SEARCH_RESULTS).map((r) => ({
+    section: r.section,
+    lawTitle: r.law_title,
+    text: extractDisplayText(r.context_text),
+  }));
+}
+
 export async function startRun(lawId: LawId): Promise<StartRunResult> {
   const records = await loadProvisions();
   const selected = selectLawProvisions(records, lawId);
