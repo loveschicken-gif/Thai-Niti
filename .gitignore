@@ -5,3 +5,4 @@ node_modules/
 *.log
 data/eval/
 data/processed/thai_niti_normalized.json
+tsconfig.tsbuildinfo

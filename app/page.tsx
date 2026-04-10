@@ -139,7 +139,13 @@ export default function HomePage() {
       <section className="mt-4 rounded-2xl border border-violet-300/25 bg-gradient-to-r from-violet-900/30 to-indigo-900/20 p-5">
         <h2 className="text-lg font-semibold text-violet-100">โหมดวิจัย (เบต้า)</h2>
         <p className="mt-2 text-sm text-violet-100/90">ปลดล็อกเครื่องมือค้นคว้ากฎหมายเชิงลึกและฟีเจอร์เบต้า</p>
-        <p className="mt-1 text-xs text-violet-200/80">ปลดล็อกที่เลเวล 50</p>
+        <p className="mt-1 text-xs text-violet-200/80">รหัสผ่าน: ThaiNitiinthefuture</p>
+        <Link
+          href="/research-beta"
+          className="mt-3 inline-block rounded-full border border-violet-400/40 bg-violet-900/50 px-4 py-2 text-xs font-semibold text-violet-100 transition hover:bg-violet-800/60"
+        >
+          เข้าห้องวิจัย →
+        </Link>
       </section>
     </AppShell>
   );
